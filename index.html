@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Etch-a-Sketch</title>
+        <script type="text/javascript" src="script.js" defer></script>
+    </head>
+    <body ondragstart="return false;" ondrop="return false;">
+        <style>
+            h1{
+                text-align: center;
+                margin: 25px 0px 0px 0px;
+            }
+            .bigContainer{
+                display: flex;
+                justify-content: center;
+
+            }
+            .grid-container {
+                display: grid;
+                width: 768px;
+                height: 768px;
+                border: 5px solid black;
+                margin: 25px;
+                justify-content: center;
+                gap: 0px;
+                
+            }
+            .grid-item{
+                background-color: blueviolet;
+                gap:0px;
+            }
+            .settings{
+                width: 200px;
+
+            }
+            .spacer{
+                width: 200px;
+
+            }
+            .buttons > button{
+                margin: 15px 0px 0px 0px;
+                padding: 10px 40px;
+            }
+            #slidecontainer{
+                margin: 15px 0px 0px 0px;
+            }
+        </style>
+        <h1>Etch-a-Sketch</h1>
+        <div class="bigContainer">
+            <div class="settings">
+                <h2>Settings:</h2>
+                <div>
+                    <label for="head">Select color:</label>
+                    <input type="color" id="colorSelector">
+                </div>
+                <div class="buttons">
+                    <button id="paint" onclick="magic=false; colorPainter = colorSelector.value">Paint</button>
+                    <button id="rainbow" onclick="magic=true;">Magic color</button>
+                    <button id="eraser" onclick="magic=false; colorPainter = '#fff'">Eraser</button>
+                    <button id="restart" onclick="start(slider.value)">Restart</button>
+                </div>
+                <div id="slidecontainer">
+                    <label>Board size: <span id='boardSize'>16x16</span></label>
+                    <input type="range" min="2" max="64" value="16" step="2" class="slider" id="SizeRange">
+                  </div>
+            </div>
+            <div class="grid-container" draggable="false"></div>
+            <div class="spacer"></div>
+        </div>
+    </body>
+</html>
